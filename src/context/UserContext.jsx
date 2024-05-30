@@ -7,6 +7,10 @@ const UserContext = createContext();
 export const UserProvider = ({ children }) => {
   const [user, setUser] = useState(null);
 
+
+
+//   Verifierar om token är giltig vid loading time
+
   useEffect(() => {
     const token = Cookies.get('jwtToken');
     if (token) {
@@ -24,6 +28,9 @@ export const UserProvider = ({ children }) => {
     }
   }, []);
 
+
+//   Login Handler. När man loggar in så skickar man sin token för att extrahera data genom jwtDecode funktion
+
   const login = (token) => {
     try {
       const userObject = jwtDecode(token);
@@ -34,6 +41,8 @@ export const UserProvider = ({ children }) => {
     }
   };
 
+
+  // Logout Handler som ändrar state på user till null och tar bort cookie
   const logout = () => {
     Cookies.remove('jwtToken');
     setUser(null);

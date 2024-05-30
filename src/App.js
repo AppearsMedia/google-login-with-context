@@ -5,6 +5,13 @@ import ProtectedPage from './components/ProtectedPage';
 import ProtectedRoute from './components/ProtectedRoute';
 
 const App = () => {
+
+
+
+  // Define all routing for the project
+
+
+
   return (
     <Routes>
       <Route path="/login" element={<LoginPage />} />

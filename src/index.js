@@ -9,9 +9,18 @@ import { UserProvider } from './context/UserContext';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
+
+
+
 root.render(
   <React.StrictMode>
+
+
+    {/* Här använder vi GoogleAuthProvider enligt dokumentationen för att starta scriptet */}
     <GoogleOAuthProvider clientId="592014387547-4ignro9ukodcue88pchph53c0v02ne9t.apps.googleusercontent.com">
+
+      {/* Här använder man Context istället för Redux för att wrappa hela App i en Context */}
       <UserProvider>
         <Router>
           <App />
